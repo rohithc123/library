@@ -12,6 +12,21 @@ function Navbar() {
           
           Oasis
         </div>
+        <div className="center-contents">
+          <div>
+          &nbsp;Rent&nbsp;
+          </div>
+          <div>
+            How it works&nbsp;
+          </div>
+          <div>
+            About us&nbsp;
+          </div>
+        </div>
+
+        <div className="logos">
+          Logos
+        </div>
       </div>
     </div>
   )

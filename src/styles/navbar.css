@@ -2,9 +2,10 @@
 
 
 .header{
-  height: 3.5em;
+  height: 6em;
   width: 100%;
   display: flex;
+  justify-content: space-around;
   align-items: center;
   background-color: rgb(255, 255, 255);
   position: sticky;
@@ -18,8 +19,6 @@ justify-content: center;
 align-items: center;
  height: 2.5em;
  width: 11em;
- margin-left: 1em;
- margin-top:2em;
 
  font-family: 'Chakra Petch', sans-serif;
  color: rgb(215, 215, 215);
@@ -32,4 +31,37 @@ align-items: center;
 
 .style-colour{
     color: rgb(3, 93, 237);
+}
+
+.center-contents{
+  display: flex;
+justify-content: space-around;
+align-items: center;
+object-fit: contain;
+ /* height: 2.5em;
+ width: 17em; */
+
+ font-family: 'Chakra Petch', sans-serif;
+ color: rgb(215, 215, 215);
+ font-size:1.5em;
+ background-color: rgb(14, 14, 14);
+
+ border-radius: 2em;
+ box-shadow: 5px 5px 5px rgb(237, 237, 237);
+}
+
+.logos{
+  display: flex;
+justify-content: center;
+align-items: center;
+ height: 2.5em;
+ width: 11em;
+
+ font-family: 'Chakra Petch', sans-serif;
+ color: rgb(215, 215, 215);
+ font-size:1.5em;
+ background-color: rgb(116, 16, 255);
+
+ border-radius: 2em;
+ box-shadow: 5px 5px 5px rgb(237, 237, 237);
 }
