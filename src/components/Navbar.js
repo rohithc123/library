@@ -6,7 +6,11 @@ function Navbar() {
     <div>
       <div className="header">
         <div className="website-name">
-         Information Oasis
+          <div className="style-colour">
+          Information&nbsp;
+          </div>
+          
+          Oasis
         </div>
       </div>
     </div>
