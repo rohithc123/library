@@ -4,6 +4,7 @@ div {
 }
 
 .home-section {
+ margin-top: 5%;
   width: 100vw;
   display: flex;
   height: 90vh;
@@ -23,25 +24,33 @@ div {
   position: relative;
   justify-content: center;
   align-items: center;
+  margin-left:20%;
 }
 .info-bold {
-  margin-left: 30%;
+  margin-left: 10%;
   justify-content: right;
-  font-family: "Chakra Petch", sans-serif;
-
+  font-family: "Chakra Pet  ch", sans-serif;
+  word-wrap: break-word;
   width: 70%;
   font-weight: 700;
   font-size: 3.5em;
 }
 
 .left-side-bg {
-  display: inline-flex;
+    margin-left: 10%;
+    justify-content: right;
+    font-family: "Chakra Pet  ch", sans-serif;
+    word-wrap: break-word;
+    /* width: 70%; */
+    font-weight: 700;
+    font-size: 3.5em;
+    display: inline-flex;
   background-color: rgba(139, 57, 255, 0.3);
 }
 
 .info-small {
-  margin-left: 30%;
-
+  margin-left: 10%;
+  margin-top: 1%;
   text-align: left;
   font-family: "Chakra Petch", sans-serif;
   width: 70%;
@@ -58,7 +67,7 @@ div {
   height: 100vh;
 }
 .rent {
-  margin-left: 30%;
+  margin-left: 10%;
 
   width: 70%;
 }

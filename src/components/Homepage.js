@@ -10,8 +10,8 @@ function Homepage() {
           <div className="left-side-text">
             <div className="info-bold">
               Discover the latest books without having to 
-              <div className="left-side-bg">buy them</div>
             </div>
+              <div className="left-side-bg">buy them</div>
             <div className="info-small">
               With our book lending site, you can access a library of millions
               of books
