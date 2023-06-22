@@ -30,16 +30,15 @@ align-items: center;
 }
 
 .style-colour{
-    color: rgb(3, 93, 237);
+    color: rgb(139, 57, 255);
 }
 
-.center-contents{
+.center-section{
   display: flex;
 justify-content: space-around;
 align-items: center;
-object-fit: contain;
- /* height: 2.5em;
- width: 17em; */
+ height: 2.5em;
+ width: 17em;
 
  font-family: 'Chakra Petch', sans-serif;
  color: rgb(215, 215, 215);
@@ -50,9 +49,9 @@ object-fit: contain;
  box-shadow: 5px 5px 5px rgb(237, 237, 237);
 }
 
-.logos{
+.logo-section{
   display: flex;
-justify-content: center;
+justify-content: space-around;
 align-items: center;
  height: 2.5em;
  width: 11em;
@@ -60,8 +59,23 @@ align-items: center;
  font-family: 'Chakra Petch', sans-serif;
  color: rgb(215, 215, 215);
  font-size:1.5em;
- background-color: rgb(116, 16, 255);
+ background-color: rgb(139, 57, 255);
 
  border-radius: 2em;
  box-shadow: 5px 5px 5px rgb(237, 237, 237);
+}
+
+.logo-search{
+  height: 1em;
+  width: 1em;
+}
+
+.logo-cart{
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.logo-profile{
+  height: 1.2em;
+  width: 1.2em;
 }

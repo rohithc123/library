@@ -1,5 +1,8 @@
 import React from 'react'
 import "../styles/navbar.css"
+import search from "../images/search.png"
+import cart from "../images/cart.png"
+import profile from "../images/profile.png"
 
 function Navbar() {
   return (
@@ -12,7 +15,7 @@ function Navbar() {
           
           Oasis
         </div>
-        <div className="center-contents">
+        <div className="center-section">
           <div>
           &nbsp;Rent&nbsp;
           </div>
@@ -24,8 +27,11 @@ function Navbar() {
           </div>
         </div>
 
-        <div className="logos">
-          Logos
+        <div className="logo-section">
+          <img src={search} alt="Search icon" className="logo-search"/>
+          <img src={cart} alt="Checkout icon"  className="logo-cart"/>
+          <img src={profile} alt="Login icon"  className="logo-profile"/>
+
         </div>
       </div>
     </div>
