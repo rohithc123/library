@@ -1,0 +1,13 @@
+.header{
+  height: 3.5em;
+  display: flex;
+  align-items: center;
+  background-color: whitesmoke;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.website-name{
+
+}
