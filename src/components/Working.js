@@ -3,7 +3,10 @@ import "../styles/working.css";
 
 function Working() {
   return (
-    <div>
+    <div className="w-header">
+        <div className="w-header-text">
+            How it Works?
+        </div>
       <div className="w-home-section">
         <div className="w-left-side">
           <div className="w-left-side-text">
