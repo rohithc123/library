@@ -1,22 +1,20 @@
 import React from "react";
 import "../styles/navbar.css";
 import search from "../images/search.png";
+import { NavLink } from "react-router-dom";
 import cart from "../images/cart.png";
 import profile from "../images/profile.png";
-// import signInWithGoogle from "./auth";
-import {auth,googleProvider} from "../config/firebase";
-import {signInWithPopup,signOut} from "firebase/auth";
-
+import { auth, googleProvider } from "../config/firebase";
+import { signInWithPopup, signOut } from "firebase/auth";
 
 function Navbar() {
-  
-  const signInWithGoogle = async () =>{
-    try{
-        await signInWithPopup(auth,googleProvider);
-    }catch(err){
-        console.error(err);
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (err) {
+      console.error(err);
     }
-};
+  };
 
   return (
     <div>
@@ -32,9 +30,29 @@ function Navbar() {
         </div>
 
         <div className="logo-section">
-          <img src={search} alt="Search icon" className="logo-search" />
+          {/* <NavLink to="/search"> */}
+              {/* <input
+                type="text"
+                placeholder="Enter here"
+                className="search-input"
+              /> */}
+              <div className="search-section">
+            <input type="text" placeholder="Enter book name" className="search-text" />
+              <img src={search} alt="Search icon" className="logo-search" />
+              </div>
+              {/* </NavLink> */}
+           
+
           <img src={cart} alt="Checkout icon" className="logo-cart" />
-          <img src={profile} alt="Login icon" className="logo-profile" onClick={signInWithGoogle}/>
+          <div className="login">
+            <img
+              src={profile}
+              alt="Login icon"
+              className="logo-profile"
+              onClick={signInWithGoogle}
+            />
+            {/* <div className="user-name">Welcome</div> */}
+          </div>
         </div>
       </div>
     </div>
