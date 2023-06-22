@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/homepage.css";
+import books from "../images/books-stacked.png"
 
 function Homepage() {
   return (
@@ -20,7 +21,11 @@ function Homepage() {
             </div>
           </div>
         </div>
-        <div className="right-side">Image</div>
+        <div className="right-side">
+            <div className="books-section">
+            <img src={books} alt="Books stacked" className="books" />
+            </div>
+        </div>
       </div>
     </div>
   );
