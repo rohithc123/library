@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap");
 
-
-.header{
+.header {
   height: 6em;
   width: 100%;
   display: flex;
@@ -13,69 +12,71 @@
   z-index: 100;
 }
 
-.website-name{
-display: flex;
-justify-content: center;
-align-items: center;
- height: 2.5em;
- width: 11em;
-
- font-family: 'Chakra Petch', sans-serif;
- color: rgb(215, 215, 215);
- font-size:1.5em;
- background-color: rgb(14, 14, 14);
-
- border-radius: 2em;
- box-shadow: 5px 5px 5px rgb(237, 237, 237);
-}
-
-.style-colour{
-    color: rgb(139, 57, 255);
-}
-
-.center-section{
+.website-name {
   display: flex;
-justify-content: space-around;
-align-items: center;
- height: 2.5em;
- width: 17em;
+  justify-content: center;
+  align-items: center;
+  height: 2.5em;
+  width: 11em;
 
- font-family: 'Chakra Petch', sans-serif;
- color: rgb(215, 215, 215);
- font-size:1.5em;
- background-color: rgb(14, 14, 14);
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  font-size: 1.5em;
+  background-color: rgb(14, 14, 14);
 
- border-radius: 2em;
- box-shadow: 5px 5px 5px rgb(237, 237, 237);
+  border-radius: 2em;
+  box-shadow: 5px 5px 5px rgb(237, 237, 237);
 }
 
-.logo-section{
+.style-colour {
+  color: rgb(139, 57, 255);
+}
+
+.center-section {
   display: flex;
-justify-content: space-around;
-align-items: center;
- height: 2.5em;
- width: 11em;
+  justify-content: space-around;
+  align-items: center;
+  height: 2.5em;
+  width: 17em;
 
- font-family: 'Chakra Petch', sans-serif;
- color: rgb(215, 215, 215);
- font-size:1.5em;
- background-color: rgb(139, 57, 255);
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  font-size: 1.5em;
+  background-color: rgb(14, 14, 14);
 
- border-radius: 2em;
- box-shadow: 5px 5px 5px rgb(237, 237, 237);
+  border-radius: 2em;
+  box-shadow: 5px 5px 5px rgb(237, 237, 237);
 }
 
-.logo-search{
+.logo-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 2.5em;
+  width: 11em;
+
+  font-family: "Chakra Petch", sans-serif;
+  color: rgb(215, 215, 215);
+  font-size: 1.5em;
+  background-color: rgb(139, 57, 255);
+
+  border-radius: 2em;
+  box-shadow: 5px 5px 5px rgb(237, 237, 237);
+}
+
+.logo-search {
   height: 1em;
   width: 1em;
 }
 
-.logo-cart{
+.logo-cart {
   height: 1.5em;
   width: 1.5em;
 }
 
-.logo-profile{
+.logo-profile {
   height: 1.2em;
   width: 1.2em;
 }
