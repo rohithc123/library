@@ -86,11 +86,9 @@ function Checkout() {
               SUBTOTAl
             </div>
           </div>
-          <CheckoutCard title="First book" price="300" image={icon} />
-          <CheckoutCard title="Second book" price="400" image={icon} />
-          <CheckoutCard title="Second book" price="500" image={icon} />
-          <CheckoutCard title="Second book" price="600" image={icon} />
-
+          {cart?.map((item) => (
+            <CheckoutCard title={item.title} price={item.price} image={item.cover} />
+          ))}
           <CurrencyFormat
             renderText={(value) => (
               <div
