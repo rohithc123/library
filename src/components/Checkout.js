@@ -9,6 +9,7 @@ import icon from "../images/bookcover.jfif";
 
 function Checkout() {
   const [{ cart }, dispatch] = useStateValue();
+  const shippingcost = 75;
 
   return (
     <div className="checkout">
@@ -87,21 +88,28 @@ function Checkout() {
             </div>
           </div>
           {cart?.map((item) => (
-            <CheckoutCard title={item.title} price={item.price} image={item.cover} />
+            <CheckoutCard
+              title={item.title}
+              price={item.price}
+              image={item.cover}
+              id={item.id}
+            />
           ))}
           <CurrencyFormat
             renderText={(value) => (
-              <div
-                className="order-indi-section"
-                style={{ backgroundColor: "rgba(161, 161, 161,0.05)" }}
-              >
-                <div className="order-left-section">
-                  SUBTOTAL
-                  <div style={{ fontWeight: "400" }}>
-                    ({cart?.length} items):{" "}
+              <div>
+                <div
+                  className="order-indi-section"
+                  style={{ backgroundColor: "rgba(161, 161, 161,0.05)" }}
+                >
+                  <div className="order-left-section">
+                    SUBTOTAL
+                    <div style={{ fontWeight: "400" }}>
+                      ({cart?.length} items):{" "}
+                    </div>
                   </div>
+                  <div className="order-right-section">{value}</div>
                 </div>
-                <div className="order-right-section">{value}</div>
               </div>
             )}
             decimalScale={2}
@@ -110,17 +118,25 @@ function Checkout() {
             thousandSeparator={true}
             prefix={"₹"}
           />
-          <div
-            className="order-indi-section"
-            style={{ backgroundColor: "rgba(161, 161, 161,0.05)" }}
-          >
-            <div className="order-left-section">SHIPPING</div>
-            <div className="order-right-section">&#8377;75</div>
-          </div>
           <div className="order-indi-section">
-            <div className="order-left-section">TOTAL</div>
-            <div className="order-right-section">&#8377;1767</div>
+            <div className="order-left-section">SHIPPING</div>
+            <div className="order-right-section">&#8377;{shippingcost}</div>
           </div>
+          <CurrencyFormat
+            renderText={(value) => (
+              <div>
+                <div className="order-indi-section">
+                  <div className="order-left-section">TOTAL</div>
+                  <div className="order-right-section">{value}</div>
+                </div>
+              </div>
+            )}
+            decimalScale={2}
+            value={getCartTotal(cart)+75}
+            displayType={"text"}
+            thousandSeparator={true}
+            prefix={"₹"}
+          />
         </div>
       </div>
     </div>
