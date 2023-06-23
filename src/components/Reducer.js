@@ -31,6 +31,11 @@ const Reducer = (state, action) => {
         ...state,
         cart: newCart,
       };
+    case "EMPTY-BASKET":
+      return{
+        ...state,
+        basket:[]
+      }
 
     case "SET-USER":
       return{
