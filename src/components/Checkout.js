@@ -1,6 +1,8 @@
 import React from "react";
 import CheckoutCard from "./CheckoutCard";
 import "../styles/checkout.css";
+import icon from "../images/bookcover.jfif";
+
 
 function Checkout() {
   return (
@@ -77,7 +79,11 @@ function Checkout() {
             <div className="order-left-section">PRODUCT</div>
             <div className="order-right-section" style={{fontWeight:"700"}}>SUBTOTAl</div>
           </div>
-          <CheckoutCard/>
+          <CheckoutCard title='First book' price='300' image={icon}/>
+          <CheckoutCard title='Second book' price='400' image={icon}/>
+          <CheckoutCard title='Second book' price='500' image={icon}/>
+          <CheckoutCard title='Second book' price='600' image={icon}/>
+
           <div className="order-indi-section" style={{backgroundColor:"rgba(161, 161, 161,0.05)"}} >
             <div className="order-left-section">SUBTOTAL</div>
             <div className="order-right-section">&#8377; 1567</div>
