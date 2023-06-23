@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { auth, googleProvider } from "../config/firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
+import { useStateValue } from "./Stateprovider";
 import axios from "axios";
 
 import Card from "./Card";
 import search_icon from "../images/search.png";
-import cart from "../images/cart.png";
+import cart_icon from "../images/cart.png";
 import profile from "../images/profile.png";
 import "../styles/navbar.css";
 
 function Navbar() {
+
+
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
@@ -21,6 +24,7 @@ function Navbar() {
 
   const [search, setSearch] = useState("");
   const [bookData, setData] = useState([]);
+  const [{cart}] = useStateValue();
 
   const searchBook = (e) => {
     if (e.key === "Enter") {
@@ -78,8 +82,10 @@ function Navbar() {
           {/* </NavLink> */}
 
           <NavLink to="/checkout" style={{ textDecoration: "none" }}>
-            <img src={cart} alt="Checkout icon" className="logo-cart" />
+            <img src={cart_icon} alt="Checkout icon" className="logo-cart" />
           </NavLink>
+          {/* ?-for optional chaining */}
+            <div>{cart?.length}</div>
           <div className="login">
             <img
               src={profile}
