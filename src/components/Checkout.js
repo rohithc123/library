@@ -1,15 +1,16 @@
 import React from "react";
 import CheckoutCard from "./CheckoutCard";
-import "../styles/checkout.css";
-import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "./Stateprovider";
+import { NavLink } from "react-router-dom";
 import { getCartTotal } from "./Reducer";
 
+import CurrencyFormat from "react-currency-format";
 import icon from "../images/bookcover.jfif";
+import "../styles/checkout.css";
 
 function Checkout() {
   const [{ cart }, dispatch] = useStateValue();
-  const shippingcost = 75;
+  const shippingcost = cart?.length>0?75:0;
 
   return (
     <div className="checkout">
@@ -71,12 +72,14 @@ function Checkout() {
               />
             </div>
             {/* <input type="text" placeholder="STATE" /> */}
+            <NavLink to="/payment">
             <input
               type="submit"
               id=""
               value="Place your order"
               className="checkout-submit-btn"
             />
+            </NavLink>
           </form>
         </div>
         <div className="order-details">
@@ -84,7 +87,7 @@ function Checkout() {
           <div className="order-indi-section" style={{ marginTop: "3.8%" }}>
             <div className="order-left-section">PRODUCT</div>
             <div className="order-right-section" style={{ fontWeight: "700" }}>
-              SUBTOTAl
+              SUBTOTAL
             </div>
           </div>
           {cart?.map((item) => (
@@ -132,7 +135,7 @@ function Checkout() {
               </div>
             )}
             decimalScale={2}
-            value={getCartTotal(cart)+75}
+            value={getCartTotal(cart)+shippingcost}
             displayType={"text"}
             thousandSeparator={true}
             prefix={"₹"}
