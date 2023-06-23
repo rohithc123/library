@@ -1,8 +1,26 @@
 import React from "react";
 import "../styles/card.css";
 import icon from "../images/bookcover.jfif";
+import { useStateValue } from "./Stateprovider";
 
-const Card = ({title,author,price }) => {
+function Card ({ title, author, price }) {
+  const [{cart}, dispatch] = useStateValue();
+
+   console.log("basket",cart);
+  const addToCart = async() => {
+    dispatch({
+      type: "ADD-TO-CART",
+      item: {
+        // id: id,
+        title: title,
+        author: author,
+        price: price,
+        // rating: rating,
+      },
+    });
+   
+  };
+
   return (
     <>
       {/* {book?.map((item) => {
@@ -45,7 +63,7 @@ const Card = ({title,author,price }) => {
             <div className="card-book-name">{title}</div>
             <div className="card-author">
               {author}
-              <button className="card-add-cart">Add to Cart</button>
+              <button className="card-add-cart" onClick={addToCart}>Add to Cart</button>
             </div>
           </div>
         </div>
