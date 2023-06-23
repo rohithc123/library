@@ -1,5 +1,6 @@
 export const initialState = {
   cart: [],
+  uses: null,
 };
 
 export const getCartTotal = (cart) =>
@@ -30,6 +31,12 @@ const Reducer = (state, action) => {
         ...state,
         cart: newCart,
       };
+
+    case "SET-USER":
+      return{
+        ...state,
+        user: action.user
+      }
 
     default:
       return state;
