@@ -14,6 +14,22 @@ const Reducer = (state, action) => {
         //initial state,item to be added
         cart: [...state.cart, action.item],
       };
+    case "REMOVE-FROM-CART":
+      const index = state.cart.findIndex(
+        (cartItem) => cartItem.id === action.id
+      );
+
+      let newCart = [...state.cart];
+
+      if (index >= 0) {
+        newCart.splice(index, 1);
+      } else {
+        console.log("No item in cart");
+      }
+      return {
+        ...state,
+        cart: newCart,
+      };
 
     default:
       return state;
