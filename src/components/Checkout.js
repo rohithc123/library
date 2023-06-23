@@ -2,10 +2,14 @@ import React from "react";
 import CheckoutCard from "./CheckoutCard";
 import "../styles/checkout.css";
 import CurrencyFormat from "react-currency-format";
+import { useStateValue } from "./Stateprovider";
+import { getCartTotal } from "./Reducer";
 
 import icon from "../images/bookcover.jfif";
 
 function Checkout() {
+  const [{ cart }, dispatch] = useStateValue();
+
   return (
     <div className="checkout">
       <div className="checkout-header">Checkout</div>
@@ -95,13 +99,15 @@ function Checkout() {
               >
                 <div className="order-left-section">
                   SUBTOTAL
-                  <div style={{fontWeight:"400"}}>(0 items): </div>
+                  <div style={{ fontWeight: "400" }}>
+                    ({cart?.length} items):{" "}
+                  </div>
                 </div>
-                <div className="order-right-section">&#8377; 1567</div>
+                <div className="order-right-section">{value}</div>
               </div>
             )}
             decimalScale={2}
-            // value={GetBasketTotal(basket)}
+            value={getCartTotal(cart)}
             displayType={"text"}
             thousandSeparator={true}
             prefix={"₹"}
@@ -115,7 +121,7 @@ function Checkout() {
           </div>
           <div className="order-indi-section">
             <div className="order-left-section">TOTAL</div>
-            <div className="order-right-section">&#8377;1642</div>
+            <div className="order-right-section">&#8377;1767</div>
           </div>
         </div>
       </div>

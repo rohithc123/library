@@ -2,6 +2,9 @@ export const initialState = {
   cart: [],
 };
 
+export const getCartTotal = (cart) =>
+  cart?.reduce((amount, item) => Number(item.price) + amount, 0);
+
 const Reducer = (state, action) => {
   console.log(action);
   switch (action.type) {
