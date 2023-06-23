@@ -28,7 +28,7 @@ function Navbar() {
         .get(
           "https://www.googleapis.com/books/v1/volumes?q=" +
             search +
-            "&key=AIzaSyBsfcp0MTpH6vJtLXGswahbs0cFcUV5szg" +
+            "&key=APIkey" +
             "&maxResults=40"
         )
         .then((res) => setData(res.data.items))
