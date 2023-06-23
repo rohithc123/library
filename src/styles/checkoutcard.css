@@ -1,0 +1,55 @@
+.checkoutcard-indi-section {
+  width: 85%;
+  height: 8em;
+  /* margin-left:2%; */
+  /* background-color: rgba(161, 161, 161,0.05); */
+  /* margin-top: 4%; */
+  /* margin-right: 5%; */
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-direction: row;
+}
+
+.checkoutcard-left-section {
+  width: 50%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* object-fit: cover; */
+}
+
+.checkoutcard-right-section {
+  width: 50%;
+  margin-left: 2%;
+  font-weight: 400;
+}
+.checkoutcard-img {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+.checkoutcard-book-name {
+  width: 60%;
+}
+
+.checkoutcard-book-cover {
+  /* display: blosck; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  object-fit: contain;
+  max-width: 100%;
+  /* object-fit: fill; */
+  /* object-position: center; */
+  max-height: 40%;
+  /* width: 100%; */
+  /* height: 100%; */
+}
+
+.checkoutcard-book-name {
+  width: 50%;
+}
