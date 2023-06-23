@@ -1,11 +1,14 @@
-import React from "react";
-import "../styles/navbar.css";
-import search from "../images/search.png";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import cart from "../images/cart.png";
-import profile from "../images/profile.png";
 import { auth, googleProvider } from "../config/firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
+import axios from "axios";
+
+import Card from "./Card";
+import search_icon from "../images/search.png";
+import cart from "../images/cart.png";
+import profile from "../images/profile.png";
+import "../styles/navbar.css";
 
 function Navbar() {
   const signInWithGoogle = async () => {
@@ -13,6 +16,23 @@ function Navbar() {
       await signInWithPopup(auth, googleProvider);
     } catch (err) {
       console.error(err);
+    }
+  };
+
+  const [search, setSearch] = useState("");
+  const [bookData, setData] = useState([]);
+
+  const searchBook = (e) => {
+    if (e.key === "Enter") {
+      axios
+        .get(
+          "https://www.googleapis.com/books/v1/volumes?q=" +
+            search +
+            "&key=AIzaSyBsfcp0MTpH6vJtLXGswahbs0cFcUV5szg" +
+            "&maxResults=40"
+        )
+        .then((res) => setData(res.data.items))
+        .catch((err) => console.log(err));
     }
   };
 
@@ -44,7 +64,16 @@ function Navbar() {
               placeholder="Enter book name"
               className="search-text"
             />
-            <img src={search} alt="Search icon" className="logo-search" />
+            <img
+              src={search_icon}
+              alt="Search icon"
+              className="logo-search"
+              // value={search}
+              // onChange={(e) => setSearch(e.target.value)}
+              // onKeyPress={searchBook}
+            />
+            {}
+            {/* <Card book={bookData} /> */}
           </div>
           {/* </NavLink> */}
 
