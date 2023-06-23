@@ -3,7 +3,7 @@ import "../styles/card.css";
 import icon from "../images/bookcover.jfif";
 import { useStateValue } from "./Stateprovider";
 
-function Card ({ title, author, price }) {
+function Card ({ title, author, price,cover }) {
   const [{cart}, dispatch] = useStateValue();
 
    console.log("basket",cart);
@@ -15,6 +15,7 @@ function Card ({ title, author, price }) {
         title: title,
         author: author,
         price: price,
+        cover:cover
         // rating: rating,
       },
     });
@@ -57,7 +58,7 @@ function Card ({ title, author, price }) {
         <div className="card">
           <div className="card-image">
             <div className="card-child card-amount">&#8377; {price}</div>
-            <img src={icon} alt="" className="card-child image" />
+            <img src={cover} alt="" className="card-child image" />
           </div>
           <div className="card-info">
             <div className="card-book-name">{title}</div>
