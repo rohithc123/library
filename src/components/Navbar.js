@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { auth, googleProvider } from "../config/firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
@@ -12,7 +12,10 @@ import profile from "../images/profile.png";
 import "../styles/navbar.css";
 
 function Navbar() {
-
+  const [search, setSearch] = useState("");
+  const [bookData, setData] = useState([]);
+  const [{ cart }] = useStateValue();
+  const [{ user },dispatch] = useStateValue();
 
   const signInWithGoogle = async () => {
     try {
@@ -22,9 +25,24 @@ function Navbar() {
     }
   };
 
-  const [search, setSearch] = useState("");
-  const [bookData, setData] = useState([]);
-  const [{cart}] = useStateValue();
+  useEffect(() => {
+    auth.onAuthStateChanged((User) => {
+      console.log("The ise is", User);
+      console.log(User.photoURL);
+
+      if (User) {
+        dispatch({
+          type:'SET-USER',
+          user:User
+        })
+      } else {
+        dispatch({
+          type: 'SET-USER',
+          user: null
+        })
+      }
+    });
+  }, []);
 
   const searchBook = (e) => {
     if (e.key === "Enter") {
@@ -85,10 +103,10 @@ function Navbar() {
             <img src={cart_icon} alt="Checkout icon" className="logo-cart" />
           </NavLink>
           {/* ?-for optional chaining */}
-            <div>{cart?.length}</div>
+          <div>{cart?.length}</div>
           <div className="login">
             <img
-              src={profile}
+              src={(!user)?profile:user.photoURL}
               alt="Login icon"
               className="logo-profile"
               onClick={signInWithGoogle}
