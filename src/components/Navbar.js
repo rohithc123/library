@@ -19,10 +19,12 @@ function Navbar() {
   return (
     <div>
       <div className="header">
-        <div className="website-name">
-          <div className="style-colour">Information&nbsp;</div>
-          Oasis
-        </div>
+        <NavLink to="/" style={{ textDecoration: "none" }}>
+          <div className="website-name">
+            <div className="style-colour">Information&nbsp;</div>
+            Oasis
+          </div>
+        </NavLink>
         <div className="center-section">
           <div>&nbsp;Rent&nbsp;</div>
           <div>How it works&nbsp;</div>
@@ -31,19 +33,24 @@ function Navbar() {
 
         <div className="logo-section">
           {/* <NavLink to="/search"> */}
-              {/* <input
+          {/* <input
                 type="text"
                 placeholder="Enter here"
                 className="search-input"
               /> */}
-              <div className="search-section">
-            <input type="text" placeholder="Enter book name" className="search-text" />
-              <img src={search} alt="Search icon" className="logo-search" />
-              </div>
-              {/* </NavLink> */}
-           
+          <div className="search-section">
+            <input
+              type="text"
+              placeholder="Enter book name"
+              className="search-text"
+            />
+            <img src={search} alt="Search icon" className="logo-search" />
+          </div>
+          {/* </NavLink> */}
 
-          <img src={cart} alt="Checkout icon" className="logo-cart" />
+          <NavLink to="/checkout" style={{ textDecoration: "none" }}>
+            <img src={cart} alt="Checkout icon" className="logo-cart" />
+          </NavLink>
           <div className="login">
             <img
               src={profile}
