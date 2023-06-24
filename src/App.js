@@ -5,6 +5,7 @@ import Homepage from "./components/Homepage";
 import Working from "./components/Working";
 import Bookfinder from "./components/Bookfinder";
 import Checkout from "./components/Checkout";
+import SearchResult from "./components/SearchResult";
 import Card from "./components/Card";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
@@ -29,49 +30,16 @@ function App() {
               <>
                 <Navbar />
                 <Homepage />
-                <Working />
-                <Card
-                  title="home-page-book-1"
-                  author="phoenix"
-                  price="900"
-                  cover={book_cover}
-                  id="1"
-                />
-                <Card
-                  title="home-page-book-2"
-                  author="dragon"
-                  price="300"
-                  cover={book_cover}
-                  id="2"
-                />
-                <Card
-                  title="home-page-book-3"
-                  author="jisoo"
-                  price="200"
-                  cover={book_cover}
-                  id="3"
-                />
-                <Card
-                  title="home-page-book-4"
-                  author="jett"
-                  price="399"
-                  cover={book_cover}
-                  id="4"
-                />
-                <Card
-                  title="home-page-book-5"
-                  author="raze"
-                  price="499"
-                  cover={book_cover}
-                  id="5"
-                />
-                <Card
-                  title="home-page-book-6"
-                  author="brim"
-                  price="800"
-                  cover={book_cover}
-                  id="6"
-                />
+                {/* <Working /> */}
+              </>
+            }
+          />
+          <Route
+            path="/working"
+            element={
+              <>
+                <Navbar />
+                <Working/>
               </>
             }
           />
@@ -83,12 +51,6 @@ function App() {
                 <Search />
                 <Homepage />
                 <Working />
-                {/* <Card title="home-page-book-1" author="phoenix" price="900" /> */}
-                {/* <Card title="home-page-book-2" author="dragon" price="300" /> */}
-                {/* <Card title="home-page-book-3" author="jisoo" price="200" /> */}
-                {/* <Card title="home-page-book-4" author="jett" price="399" /> */}
-                {/* <Card title="home-page-book-5" author="raze" price="499" /> */}
-                {/* <Card title="home-page-book-6" author="brim" price="800" /> */}
               </>
             }
           />
