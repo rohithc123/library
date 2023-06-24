@@ -1,19 +1,72 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import CheckoutCard from "./CheckoutCard";
 import { useStateValue } from "./Stateprovider";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { getCartTotal } from "./Reducer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import CurrencyFormat from "react-currency-format";
 import icon from "../images/bookcover.jfif";
 import "../styles/checkout.css";
 
 function Checkout() {
-  const [{ cart }, dispatch] = useStateValue();
-  const shippingcost = cart?.length>0?75:0;
+  const [{ user, cart }, dispatch] = useStateValue();
+  const shippingcost = cart?.length > 0 ? 75 : 0;
+  const navigate = useNavigate();
+
+  //   const summa = () => {};
+  const removecartitems = () => {
+    toast.success("Order Successfully Placed", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
+  function timeout(delay: number) {
+    return new Promise( res => setTimeout(res, delay) );
+}
+
+  const toastError = () =>
+    toast.error("Please Log In", { position: toast.POSITION.TOP_CENTER });
+
+  const toastadditems = () => {
+    toast.error("Add Items to cart", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+  const toastSuccess = async () => {
+    toast.success("Order Successfully Placed", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+    dispatch({
+      type: "EMPTY-BASKET",
+    });
+    await timeout(5000);
+    navigate("/");
+  };
+
+  useEffect(() => {
+    // const handleClickScroll = () => {
+    const element = document.getElementById("checkout-page");
+    if (element) {
+      //   element.scrollIntoView({
+      //     behavior: "smooth",
+      //     block:"start"
+      //   });
+
+      window.scrollTo({
+        behavior: "smooth",
+        top:
+          element.getBoundingClientRect().top -
+          document.body.getBoundingClientRect().top -
+          100,
+      });
+    }
+    // };
+  });
 
   return (
-    <div className="checkout">
+    <div className="checkout" id="checkout-page">
       <div className="checkout-header">Checkout</div>
       <div className="checkout-section">
         <div className="billing-details">
@@ -21,16 +74,23 @@ function Checkout() {
             BILLING DETAILS
             <div className="checkout-name">
               <div className="checkout-input">
-                <div>FIRST NAME</div>
-                <input type="text" required className="name" />
-              </div>
-              <div className="checkout-input">
-                <div>LAST NAME</div>
+                <div>NAME</div>
                 <input
                   type="text"
                   required
-                  className="name"
-                  // style={{ marginLeft: "0%" }}
+                  className="checkout-input-field"
+                  value={user ? user.displayName : ""}
+                />
+              </div>
+            </div>
+            <div className="checkout-name">
+              <div className="checkout-input">
+                <div>E-MAIL</div>
+                <input
+                  type="text"
+                  required
+                  className="checkout-input-field"
+                  value={user ? user.email : ""}
                 />
               </div>
             </div>
@@ -72,15 +132,35 @@ function Checkout() {
               />
             </div>
             {/* <input type="text" placeholder="STATE" /> */}
-            <NavLink to="/payment">
+            {/* <NavLink to="/payment"> */}
             <input
               type="submit"
               id=""
               value="Place your order"
               className="checkout-submit-btn"
+              //   disabled={!user ? true : false}
+              onClick={
+                !user
+                  ? toastError
+                  : cart.length === 0
+                  ? toastadditems
+                  : toastSuccess
+              }
             />
-            </NavLink>
+            {/* </NavLink> */}
           </form>
+
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </div>
         <div className="order-details">
           <div className="order-header">ORDER DETAILS</div>
@@ -135,7 +215,7 @@ function Checkout() {
               </div>
             )}
             decimalScale={2}
-            value={getCartTotal(cart)+shippingcost}
+            value={getCartTotal(cart) + shippingcost}
             displayType={"text"}
             thousandSeparator={true}
             prefix={"₹"}
