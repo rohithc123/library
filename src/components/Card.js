@@ -36,10 +36,11 @@ function Card({ book }) {
           });
         };
 
-        if (cover_img != undefined && title!=undefined && author!=undefined) {
+        if (cover_img != undefined && title!=undefined && author!=undefined
+          ) {
           // console.log("basket");
           return (
-            <div className="card-outer">
+            <div className="card-outer" >
               <div className="card">
                 <div className="card-image">
                   <div className="card-child card-amount">&#8377; {amount}</div>
