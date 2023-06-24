@@ -1,7 +1,9 @@
 export const initialState = {
   cart: [],
-  uses: null,
-  books:[],
+  user: null,
+  books: [],
+  link: "",
+  search: "",
 };
 
 export const getCartTotal = (cart) =>
@@ -33,23 +35,33 @@ const Reducer = (state, action) => {
         cart: newCart,
       };
     case "EMPTY-BASKET":
-      return{
+      return {
         ...state,
-        basket:[]
-      }
+        cart: [],
+      };
 
     case "ADD-BOOKS-SEARCH-RESULT":
-      return{
+      return {
         ...state,
-        books: [...state.books,action.item],
-        
-      }
+        books: [...state.books, action.item],
+      };
 
     case "SET-USER":
-      return{
+      return {
         ...state,
-        user: action.user
-      }
+        user: action.user,
+      };
+
+    case "SET-LINK":
+      return {
+        ...state,
+        link: action.link,
+      };
+    case "SET-SEARCH":
+      return {
+        ...state,
+        search: action.search,
+      };
 
     default:
       return state;
