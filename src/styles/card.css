@@ -1,19 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap");
 
+.card-outer {
+  margin: 4%;
+  box-shadow: 5px 5px 5px 5px rgba(237, 237, 237, 0.4);
+  border-radius: 8px;
+  height: 380px;
+}
+
 .card {
+  /* margin: 5%; */
+  /* margin-left: 8%; */
+  /* margin-right: 8%; */
+
   font-family: "Chakra Petch", sans-serif;
   position: relative;
   width: 5vw;
-  min-height: 250px;
-  max-height: 350px; 
-  min-width: 200px;
+  /* min-height: 250px; */
+  min-width: 280px;
   max-width: 350px;
   background-color: rgb(255, 255, 255);
-  border-radius: 8px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   position: relative;
-  box-shadow: 5px 5px 5px 5px rgba(237, 237, 237,0.4);
 }
 
 .card-image {
@@ -23,14 +35,16 @@
 
   display: grid;
   border-radius: 8px;
-
 }
 
+.card-image:hover {
+  background-color: rgba(139, 57, 255, 0.3);
+}
 .card-amount {
   font-size: 0.9em;
 
   width: 40%;
-  height: 10%;
+  height: 15%;
   z-index: 2;
   display: flex;
   text-align: center;
@@ -44,10 +58,10 @@
 }
 
 .image {
-    border-radius: 5px;
-    margin:3%;
+  border-radius: 5px;
+  margin: 3%;
   width: 94%;
-  max-height: 200px;
+  height: 200px;
   /* display: block; */
   object-fit: cover;
 }
@@ -56,12 +70,48 @@
   grid-area: 1 / 1 / 1 / 1;
 }
 
-.card-info{
-    /* height: 20%; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.card-info {
+  /* height: 20%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 }
 
+.card-book-name {
+    height: 4em;
+  word-wrap: break-word;
+  font-weight: 700;
+  margin-top: 2%;
+}
+
+
+.card-author{
+    height:3em;
+    font-size: 0.8em;
+}
+.card-add-cart {
+  /* padding-top: 10px; */
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* height: 30%; */
+}
+
+.card-add-cart > button {
+  font-size: 0.6em;
+  background-color: rgba(139, 57, 255, 0.13);
+  height: 2.5em;
+  width: 50%;
+  border: none;
+  border-radius: 10px;
+}
+
+.card-add-cart > button:hover {
+  background-color: rgba(139, 57, 255, 0.3);
+}

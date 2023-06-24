@@ -1,6 +1,7 @@
 export const initialState = {
   cart: [],
   uses: null,
+  books:[],
 };
 
 export const getCartTotal = (cart) =>
@@ -35,6 +36,13 @@ const Reducer = (state, action) => {
       return{
         ...state,
         basket:[]
+      }
+
+    case "ADD-BOOKS-SEARCH-RESULT":
+      return{
+        ...state,
+        books: [...state.books,action.item],
+        
       }
 
     case "SET-USER":

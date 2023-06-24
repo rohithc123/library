@@ -6,6 +6,7 @@ import { useStateValue } from "./Stateprovider";
 import axios from "axios";
 
 import Card from "./Card";
+import Book from "./Book";
 import search_icon from "../images/search.png";
 import cart_icon from "../images/cart.png";
 import profile from "../images/profile.png";
@@ -14,8 +15,9 @@ import "../styles/navbar.css";
 function Navbar() {
   const [search, setSearch] = useState("");
   const [bookData, setData] = useState([]);
-  const [{ cart }] = useStateValue();
-  const [{ user },dispatch] = useStateValue();
+  // const [{ cart }] = useStateValue();
+  const [{ user, books, cart }, dispatch] = useStateValue();
+  // const [{ books },dispatch] = useStateValue();
 
   const signInWithGoogle = async () => {
     try {
@@ -32,29 +34,36 @@ function Navbar() {
 
       if (User) {
         dispatch({
-          type:'SET-USER',
-          user:User
-        })
+          type: "SET-USER",
+          user: User,
+        });
       } else {
         dispatch({
-          type: 'SET-USER',
-          user: null
-        })
+          type: "SET-USER",
+          user: null,
+        });
       }
     });
   }, []);
 
   const searchBook = (e) => {
+    // console.log("searching");
     if (e.key === "Enter") {
       axios
         .get(
           "https://www.googleapis.com/books/v1/volumes?q=" +
             search +
-            "&key=APIkey" +
+            "&key=AIzaSyBsfcp0MTpH6vJtLXGswahbs0cFcUV5szg" +
             "&maxResults=40"
         )
         .then((res) => setData(res.data.items))
         .catch((err) => console.log(err));
+
+      // dispatch({
+      // type: "ADD-BOOKS-SEARCH-RESULT",
+      // item: bookData,
+      // });
+      console.log(bookData);
     }
   };
 
@@ -85,16 +94,12 @@ function Navbar() {
               type="text"
               placeholder="Enter book name"
               className="search-text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyPress={searchBook}
             />
-            <img
-              src={search_icon}
-              alt="Search icon"
-              className="logo-search"
-              // value={search}
-              // onChange={(e) => setSearch(e.target.value)}
-              // onKeyPress={searchBook}
-            />
-            {}
+            <img src={search_icon} alt="Search icon" className="logo-search" />
+            {/* {} */}
             {/* <Card book={bookData} /> */}
           </div>
           {/* </NavLink> */}
@@ -106,7 +111,7 @@ function Navbar() {
           <div>{cart?.length}</div>
           <div className="login">
             <img
-              src={(!user)?profile:user.photoURL}
+              src={!user ? profile : user.photoURL}
               alt="Login icon"
               className="logo-profile"
               onClick={signInWithGoogle}
@@ -114,6 +119,10 @@ function Navbar() {
             {/* <div className="user-name">Welcome</div> */}
           </div>
         </div>
+      </div>
+      <div className="search-results">
+        {}
+        <Card book={bookData} />
       </div>
     </div>
   );
