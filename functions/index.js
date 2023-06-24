@@ -1,7 +1,3 @@
-// const {onRequest} = require("firebase-functions/v2/https");
-// const logger = require("firebase-functions/logger");
-// const function = require("firebase-fucntions");
-
 const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
@@ -11,13 +7,12 @@ const stripe = require("stripe")(
 
 const app = express();
 
-app.use(cors({origin:true}));
+app.use(cors({ origin : true }));
 app.use(express.json());
 
 app.get("/", (request, response) => response.status(200).send("hello world"));
 
 app.post("/payment/create", async (request, response) => {
-  //amount in subunits
   const total = request.query.total;
   
   console.log("Payment Request Received", total);
@@ -27,7 +22,7 @@ app.post("/payment/create", async (request, response) => {
     currency: "usd",
   });
 
-  //status for ok-created everything is working fine
+  // status for ok-created everything is working fine
   response.status(201).send({
     clientSecret: paymentIntent.client_secret,
   });
@@ -35,5 +30,5 @@ app.post("/payment/create", async (request, response) => {
 
 exports.api = functions.https.onRequest(app);
 
-//api endpoint
+
 // http://127.0.0.1:5001/information-oasis/us-central1/api
