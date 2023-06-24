@@ -1,0 +1,32 @@
+
+
+.search-area{
+    z-index:1000;
+    width: 2vh;
+    background-color: aquamarine;
+    height: 100vh;
+    /* position: relative; */
+    margin-top: auto;
+    margin-right:0;
+    margin-left:auto;
+    overflow: hidden;
+    position: relative;
+    justify-content: right;
+    align-items: right;
+    -webkit-animation-duration: 0.75s;
+    -webkit-animation-name: loading;
+    -webkit-animation-iteration-count: 1;
+}
+.text-field{
+ width:500px;
+}
+
+@keyframes loading {
+    0%{
+        width: 0vw;
+    }
+    
+    100%{
+        width: 25vw;
+    }
+}
