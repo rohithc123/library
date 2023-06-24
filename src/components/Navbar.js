@@ -107,11 +107,11 @@ function Navbar() {
           <NavLink to="/checkout" style={{ textDecoration: "none" }}>
             <img src={cart_icon} alt="Checkout icon" className="logo-cart" />
           </NavLink>
+          <div className="checkout-items">{cart?.length}</div>
           {/* ?-for optional chaining */}
-          <div>{cart?.length}</div>
           <div className="login">
             <img
-              src={!user ? profile : user.photoURL}
+              src={profile  }
               alt="Login icon"
               className="logo-profile"
               onClick={signInWithGoogle}
