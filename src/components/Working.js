@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/working.css";
 
 function Working() {
+  useEffect(() => {
+    // const handleClickScroll = () => {
+    const element = document.getElementById("working-page");
+    if (element) {
+      //   element.scrollIntoView({
+      //     behavior: "smooth",
+      //     block:"start"
+      //   });
+
+      window.scrollTo({
+        behavior: "smooth",
+        top:
+          element.getBoundingClientRect().top -
+          document.body.getBoundingClientRect().top -
+          100,
+      });
+    }
+  });
+
   return (
-    <div className="w-header">
-        <div className="w-header-text">
-            How it Works?
-        </div>
+    <div className="w-header" id="working-page">
+      <div className="w-header-text" >
+        How it Works?
+      </div>
       <div className="w-home-section">
         <div className="w-left-side">
           <div className="w-left-side-text">
@@ -23,7 +42,8 @@ function Working() {
             <div className="w-left-info">
               <div className="w-numbers">3</div>
               <div className="w-text">
-                &nbsp;Exchange it for your next read,from the comfort at your home
+                &nbsp;Exchange it for your next read,from the comfort at your
+                home
               </div>
             </div>
           </div>

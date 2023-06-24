@@ -4,7 +4,12 @@
 /node_modules
 /.pnp
 .pnp.js
+keys.env
+firebase.js
+apikeys.txt
+bookfinder.js
 
+.env
 # testing
 /coverage
 
