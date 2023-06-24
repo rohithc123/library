@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap");
+.checkout {
+  margin-top: 7em;
+  margin-left: 4em;
+  /* overflow-x: hidden; */
+  /* overflow-y: hidden; */
+}
+
+.checkout-section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  margin-top: 5em;
+  flex-direction: row;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+}
+
+.checkout-header {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-size: 4em;
+}
+.billing-details {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+.order-details {
+  width: 50%;
+}
+
+.checkout-name {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.checkout-input {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  margin-top: 2%;
+  width: 100%;
+}
+.name {
+  width: 82%;
+  height: 3em;
+  border-radius: 2px;
+  border-color: rgb(191, 191, 191);
+  /* border: 30px; */
+  padding-left: 1em;
+  margin-top: 2%;
+  border-width: 1px;
+}
+.name::after {
+  box-decoration-break: none;
+}
+.checkout-name {
+  width: 100%;
+}
+.checkout-input-field {
+  width: 91%;
+  height: 3em;
+  padding-left: 1em;
+  font-size: 1em;
+  border-radius: 2px;
+  border-color: rgb(191, 191, 191);
+  /* border: 30px; */
+  margin-top: 1%;
+  border-width: 1px;
+}
+
+.checkout-submit-btn {
+  font-family: "Chakra Petch", sans-serif;
+  /* background-color: rgb(219, 194, 255); */
+  font-size: 1em;
+  border: none;
+  height: 5%;
+  width: 20%;
+  /* margin-right: 9%; */
+  /* text-align: center; */
+  margin-top: 2%;
+  border-radius: 5px;
+  /* display: flex; */
+  /* margin-right:0; */
+  /* margin-left:auto; */
+}
+.checkout-submit-btn:hover {
+  background-color: rgb(219, 194, 255);
+}
+
+.order-details {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.order-header {
+  /* width: 100%; */
+}
+.order-left-section {
+  width: 50%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: row;
+}
+
+.order-right-section {
+  width: 50%;
+  margin-left: 2%;
+  font-weight: 400;
+}
+
+.order-indi-section {
+  width: 85%;
+  height: 4em;
+  /* margin-left:2%; */
+  background-color: rgba(161, 161, 161,0.25);
+  /* margin-top: 4%; */
+  /* margin-right: 5%; */
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-direction: row;
+}
